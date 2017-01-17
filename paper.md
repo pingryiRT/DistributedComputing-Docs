@@ -37,7 +37,22 @@ Proposing, Accepting, and Completing Jobs
 
 Transaction History
 -------------------
-(TODO talk about the blockchain-like system that we will use)
+### Timestamp Server
+(TODO Write This) Basically cite and summarize the relevant part of the bitcoin paper.
+
+### Types of Transactions
+(TODO write this out)
+* Propose
+* Accept
+* Complete -- Maybe the worker can just directly inform the master upon work completion? Does it need to be [ublically timestamped?
+* Verify -- Signed by the master confirming that the work has been done and updating the reputations of both master and worker.
+* Abort -- Can be sent by a worker when they no longer wish to perform the work or by the master if the worker is unresponsive for a certain pre-arranged amount of time (eg. worker experience a power failure)
+* Report -- For reporting cheaters
+
+### Incentive
+One weakness of other systems that use a hash-based proof of work for time-stamping (eg bitcoin) is that they spend a huge amount of computation power on performing hashes which corresponds to spending real-world resources like energy. Wasting computation power is never ideal, especially in a network designed specifically to equitably share that resource. A property of this network (TODO For real, we need a name!) is that the network will self-regulate a worker's incentive.
+
+In general a worker can gain reputation by either, solving real problems for a master, or hashing blocks into the block chain, and a history of their choices will be maintained in their reputation score. When choosing workers to complete their jobs, a master will be able to screen potential workers based o ntheiry reputation score. So in the event that no one is hashing transactions into the blcokchain, masters may reward nodes who have worked on the block chain recently by giving them more work, and refrain from giving work to nodes who have not pulled their share of the weight thus incentivizing more hashing into the blockchain. On the other hand, if too many peers have been competing to hash blocks into the block chain, masters can reward nodes who have done real work with more jobs in the future.
 
 
 Trust and Reliability
