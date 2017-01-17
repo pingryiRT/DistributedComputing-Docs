@@ -52,7 +52,19 @@ Completing a Job
 Reputation System
 -----------------
 (TODO write a sentence or two intro to this section)
+Reputation is a system of currency used in the network. Reputation is earned either by running 
+other people's code or hashing out the next block in the block chain. Each of these tasks will
+reward the node with a different type of reputation, worker reputation or block reputation (These 
+names will probably be different). Since both the block chain and worker tasks need to be accomplished,
+this system of reputation will self regulate the amount of work done for both tasks. If ever the number of 
+worker tasks begin to outnumber the number block chain tasks, then users will probably choose to work
+towards the block chain tasks more and vise versa. 
 
+
+
+2 Types of Reputation 
+Lifetime histories
+Cumulative totals 
 For each node, which will be uniquely identified by a public-private key pair, the reputation system keeps track of the follwoing.
 * Operations performed as a worker
 * Operations received (TODO vocab) as a master
