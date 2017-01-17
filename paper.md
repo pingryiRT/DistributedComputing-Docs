@@ -34,7 +34,7 @@ Workers may be motivated to "cheat" by claiming to have completed calculations a
 (TODO write this)
 
 ### Redundant Execution
-(TODO write this)
+Executing a single operation across one or more nodes may be an adequate way to ensure that a node does not have the ability to claim false results. Since an untrusted node may be assigned a large number of operations to complete per program, if a certain percentage is repeated and confirmed to be correct by a reliable node, it becomes unlikely that node cheated on a percentage of tasks that would allow them to gain any real benefit in processing power, all of which happened to be those that were not double-check. This is because if a single operation is found to be false on a single program, all operations signed with that signature could be invalidate, making the risk-reward lean towards honestly completing the assigned work. While redundant execution does require more work, it allows a master node to be relatively certain of their results. Ultimately, the amount of redundancy in each program operation will be up to the master node to decide when making their program request (TODO vocab).
 
 
 Completing a Job
@@ -59,7 +59,8 @@ For each node, which will be uniquely identified by a public-private key pair, t
 * Times reported as a cheater
 * Number of cheaters reported
 * Amount of work performed to support the network (eg. hashing transactions into the block chain.)
-* (TODO what else?)
+* (TODO Currency System?)
+* (TODO benefits of a currency such as self balancing the blockchain vs problems, and providing an incentive to be honest)
 
 
 Security and Privacy
