@@ -23,6 +23,18 @@ Introduction
 This paper discusses such a protocol at a conceptual level. Full technical details of our implementaion along with a proof-of-concept client are available and discussed briefly at the end of the paper.
 
 
+Proposing, Accepting, and Completing Jobs
+-----------------------------------------
+(TODO write this. The section should basically outline the following, all of which will need to be expanded)
+* The master conceives of a problem and writes a parallel algorithm to solve it. Libraries like Map Reduce could be quite helpful here and that should be mentioned
+* The master will decide how to confirm correct results according to the earlier section about trust and reliability)
+* The master will broadcast request(s) (TODO vocab) for peers in the network to accept
+* The workers will complete their tasks, but not return the result until the master has signed a completion.
+* The master will sign the completion only after the workers have proved that they have completed the work correctly.
+* The previous two points may seem like a standoff, but it isn't. This is where ZKP comes in. After the master is convinced the work was done correctly, both parties will sign the completion and broadcast it to be hashed into the blockchain.
+* After the completion clears the block chain the worker will return the results to the master.
+
+
 Transaction History
 -------------------
 (TODO talk about the blockchain-like system that we will use)
@@ -38,17 +50,6 @@ Workers may be motivated to "cheat" by claiming to have completed calculations a
 ### Redundant Execution
 Executing a single operation across one or more nodes may be an adequate way to ensure that a node does not have the ability to claim false results. Since an untrusted node may be assigned a large number of operations to complete per program, if a certain percentage is repeated and confirmed to be correct by a reliable node, it becomes unlikely that node cheated on a percentage of tasks that would allow them to gain any real benefit in processing power, all of which happened to be those that were not double-check. This is because if a single operation is found to be false on a single program, all operations signed with that signature could be invalidate, making the risk-reward lean towards honestly completing the assigned work. While redundant execution does require more work, it allows a master node to be relatively certain of their results. Ultimately, the amount of redundancy in each program operation will be up to the master node to decide when making their program request (TODO vocab).
 
-
-Completing a Job
-----------------
-(TODO write this. The section should basically outline the following, all of which will need to be expanded)
-* The master conceives of a problem and writes a parallel algorithm to solve it. Libraries like Map Reduce could be quite helpful here and that should be mentioned
-* The master will decide how to confirm correct results according to the earlier section about trust and reliability)
-* The master will broadcast request(s) (TODO vocab) for peers in the network to accept
-* The workers will complete their tasks, but not return the result until the master has signed a completion.
-* The master will sign the completion only after the workers have proved that they have completed the work correctly.
-* The previous two points may seem like a standoff, but it isn't. This is where ZKP comes in. After the master is convinced the work was done correctly, both parties will sign the completion and broadcast it to be hashed into the blockchain.
-* After the completion clears the block chain the worker will return the results to the master.
 
 
 Reputation System
