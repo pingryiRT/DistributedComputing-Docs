@@ -2,7 +2,9 @@ A Zero-Trust Peer-to-Peer Distributed Computing Protocol
 ========================================================
 
 Authors: Josh Orndorff, Mitchell Pavlak, Michael Sun
+
 Organization: The Pingry School
+
 Special Thanks: Colleen Kirkhart, Ellen Li, (TODO others ?)
 
 
