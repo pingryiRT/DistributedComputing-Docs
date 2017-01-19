@@ -17,10 +17,10 @@ Introduction
 ------------
 (TODO write this. Probably worth referencing the following idea fragments)
 * P2P is popular like in bittorrent and bitcoin
-* Parallel computing is awesome, and useful for many applicaitons - the success of map reduce proves it. But only big organizations can afford dedicated grids; this empowers the little guy.
+* Parallel computing is awesome, and useful for many applications - the success of map reduce proves it. But only big organizations can afford dedicated grids; this empowers the little guy.
 *(TODO other ideas)
 
-This paper discusses such a protocol at a conceptual level. Full technical details of our implementaion along with a proof-of-concept client are available and discussed briefly at the end of the paper.
+This paper discusses such a protocol at a conceptual level. Full technical details of our implementation along with a proof-of-concept client are available and discussed briefly at the end of the paper.
 
 
 Proposing, Accepting, and Completing Jobs
@@ -44,7 +44,7 @@ Transaction History
 (TODO write this out)
 * Propose
 * Accept
-* Complete -- Maybe the worker can just directly inform the master upon work completion? Does it need to be [ublically timestamped?
+* Complete -- Maybe the worker can just directly inform the master upon work completion? Does it need to be publicly timestamped?
 * Verify -- Signed by the master confirming that the work has been done and updating the reputations of both master and worker.
 * Abort -- Can be sent by a worker when they no longer wish to perform the work or by the master if the worker is unresponsive for a certain pre-arranged amount of time (eg. worker experience a power failure)
 * Report -- For reporting cheaters
@@ -52,7 +52,9 @@ Transaction History
 ### Incentive
 One weakness of other systems that use a hash-based proof of work for time-stamping (eg bitcoin) is that they spend a huge amount of computation power on performing hashes which corresponds to spending real-world resources like energy. Wasting computation power is never ideal, especially in a network designed specifically to equitably share that resource. A property of this network (TODO For real, we need a name!) is that the network will self-regulate a worker's incentive.
 
-In general a worker can gain reputation by either, solving real problems for a master, or hashing blocks into the block chain, and a history of their choices will be maintained in their reputation score. When choosing workers to complete their jobs, a master will be able to screen potential workers based o ntheiry reputation score. So in the event that no one is hashing transactions into the blcokchain, masters may reward nodes who have worked on the block chain recently by giving them more work, and refrain from giving work to nodes who have not pulled their share of the weight thus incentivizing more hashing into the blockchain. On the other hand, if too many peers have been competing to hash blocks into the block chain, masters can reward nodes who have done real work with more jobs in the future.
+In general a worker can gain reputation by either, solving real problems for a master, or hashing blocks into the block chain, and a history of their choices will be maintained in their reputation score. When choosing workers to complete their jobs, a master will be able to screen potential workers based on their reputation score. So in the event that no one is hashing transactions into the blockchain, masters may reward nodes who have worked on the block chain recently by giving them more work, and refrain from giving work to nodes who have not pulled their share of the weight: thus incentivizing more hashing into the blockchain. On the other hand, if too many peers have been competing to hash blocks into the block chain, masters can reward nodes who have done real work with more jobs in the future. Masters are incentivized to do this, because inefficiencies in the spread of computational power over the different jobs ultimately hurts the master. 
+
+(TODO CURRENCY? Allowing different payments based on reputation scores/other metrics —> one example is instead of not accepting the work of nodes that don’t pull their weight in one of the above, masters could just charge them a surcharge?)
 
 
 Trust and Reliability
@@ -69,21 +71,10 @@ Executing a single operation across one or more nodes may be an adequate way to 
 
 Reputation System
 -----------------
-(TODO write a sentence or two intro to this section)
-Reputation is a system of currency used in the network. Reputation is earned either by running 
-other people's code or hashing out the next block in the block chain. Each of these tasks will
-reward the node with a different type of reputation, worker reputation or block reputation (These 
-names will probably be different). Since both the block chain and worker tasks need to be accomplished,
-this system of reputation will self regulate the amount of work done for both tasks. If ever the number of 
-worker tasks begin to outnumber the number block chain tasks, then users will probably choose to work
-towards the block chain tasks more and vise versa. 
+A key component of the network is that peers do not trust one another. The network’s reputation system is a decentralized metric that allows a node to gauge the trustworthiness of a peer. Transactions are signed using a public-private key pair, and for each unique public-private key, the network stores: 
+(TODO review introduction)
 
-
-
-2 Types of Reputation 
-Lifetime histories
-Cumulative totals 
-For each node, which will be uniquely identified by a public-private key pair, the reputation system keeps track of the follwoing.
+For each node, which will be uniquely identified by a public-private key pair, the reputation system keeps track of the following.
 * Operations performed as a worker
 * Operations received (TODO vocab) as a master
 * Times reported as a cheater
@@ -117,9 +108,9 @@ This basically means providing such little data to any individual peer that the 
 
 Proof of Concept
 ----------------
-We have implemented a platform independant proof-of-concept client in Python to demonstrate the feasibility of such a network. The complete code is available at (TODO put link here). This code works well, but has not been analyzed by a security expert and is not recommended for production use.
+We have implemented a platform independent proof-of-concept client in Python to demonstrate the feasibility of such a network. The complete code is available at (TODO put link here). This code works well, but has not been analyzed by a security expert and is not recommended for production use.
 
-Discuss accomplishments our code acheives, assumptions it makes, and weaknesses it has.
+Discuss accomplishments our code achieves, assumptions it makes, and weaknesses it has.
 
 Technical details of our implementation are available at (TODO put link here. Could be the same link as earlier in this section, but let's decide after we get it working.)
 
