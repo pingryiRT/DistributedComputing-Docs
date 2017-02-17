@@ -1,7 +1,7 @@
 A Zero-Trust Peer-to-Peer Distributed Computing Protocol
 ========================================================
 
-Authors: Josh Orndorff, Mitchell Pavlak, Michael Sun
+Authors: Josh Orndorff, Mitchell Pavlak, Michael Sun, Andrew Beckmen 
 
 Organization: The Pingry School
 
@@ -38,7 +38,7 @@ Proposing, Accepting, and Completing Jobs
 Transaction History
 -------------------
 ### Timestamp Server
-(TODO Write This) Basically cite and summarize the relevant part of the bitcoin paper.
+A problem that can arise in distributed networks is the issue of utilizing resources multiple times by broadcasting messages simultaneously. As described in the Bitcoin protocol, a solution to this problem is to employ a timestamp server that assigns a timestamp to each block within the blockchain. The inclusion of a timestamp verifies that data existed at a certain point, and each timestamp references the previous timestamp in its hash. This ensures the linear progression of the block chain by reinforcing prior timestamps.   
 
 ### Types of Transactions
 (TODO write this out)
